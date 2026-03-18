@@ -43,3 +43,36 @@ profiles:
       recode-video: "mp4"
       postprocessor-args:
         - "VideoConvertor+ffmpeg_o1:-c:v libx264 -crf 18 -preset slow -c:a aac -b:a 192k"
+
+  tiktok_mp4_auth:
+    name: "TikTok MP4 (Auth)"
+    ydl_options:
+      output: "/youtube-dl/TikTok/%(uploader)s/%(title)s [%(id)s].%(ext)s"
+      format: "bv*[ext=webm]+ba[ext=webm]/bv*+ba/b"
+      merge-output-format: "webm"
+      recode-video: "mp4"
+      cookiefile: "/cookies/cookies.txt"
+      postprocessor-args:
+        - "VideoConvertor+ffmpeg_o1:-c:v libx264 -crf 18 -preset slow -c:a aac -b:a 192k"
+
+  instagram_mp4_auth:
+    name: "Instagram MP4 (Auth)"
+    ydl_options:
+      output: "/youtube-dl/Instagram/%(uploader)s/%(title)s [%(id)s].%(ext)s"
+      format: "bv*[ext=webm]+ba[ext=webm]/bv*+ba/b"
+      merge-output-format: "webm"
+      recode-video: "mp4"
+      cookiefile: "/cookies/cookies.txt"
+      postprocessor-args:
+        - "VideoConvertor+ffmpeg_o1:-c:v libx264 -crf 18 -preset slow -c:a aac -b:a 192k"
+
+  facebook_mp4_auth:
+    name: "Facebook MP4 (Auth)"
+    ydl_options:
+      output: "/youtube-dl/Facebook/%(uploader)s/%(title)s [%(id)s].%(ext)s"
+      format: "bv*[ext=webm]+ba[ext=webm]/bv*+ba/b"
+      merge-output-format: "webm"
+      recode-video: "mp4"
+      cookiefile: "/cookies/cookies.txt"
+      postprocessor-args:
+        - "VideoConvertor+ffmpeg_o1:-c:v libx264 -crf 18 -preset slow -c:a aac -b:a 192k"

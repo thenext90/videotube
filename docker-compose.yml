@@ -10,3 +10,4 @@ services:
     volumes:
       - ${VIDEOTUBE_DATA_DIR:-./data}:/youtube-dl
       - ./config.yml:/app_config/config.yml:ro
+      - ./cookies:/cookies:ro

@@ -82,3 +82,29 @@ Se añadieron perfiles en la UI para:
 - `Facebook MP4`
 
 Además, `yt-dlp` ya incluye extractores para esas plataformas en esta instalación.
+
+## Contenido privado (cookies/login)
+
+Para publicaciones privadas o con restricciones de sesión, puedes usar perfiles `Auth`:
+
+- `TikTok MP4 (Auth)`
+- `Instagram MP4 (Auth)`
+- `Facebook MP4 (Auth)`
+
+Pasos:
+
+1. Exporta tus cookies de navegador en formato `Netscape` (archivo `cookies.txt`).
+2. Guarda el archivo en `cookies/cookies.txt`.
+3. Reinicia el servicio:
+
+   ```bash
+   docker compose up -d
+   ```
+
+4. En la UI selecciona un perfil `Auth` al descargar.
+
+Notas:
+
+- `cookies/` se monta en modo solo lectura dentro del contenedor.
+- `cookies.txt` no se sube a git (está ignorado en `.gitignore`).
+- Usa solo contenido permitido por la plataforma y tus permisos de cuenta.
