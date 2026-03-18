@@ -2,7 +2,44 @@ ydl_server:
   port: 8080
   host: 0.0.0.0
   metadata_db_path: "/youtube-dl/.ydl-metadata.db"
+  default_format: "video/mp4"
 
 ydl_options:
   output: "/youtube-dl/%(title)s [%(id)s].%(ext)s"
   cache-dir: "/youtube-dl/.cache"
+  format: "bv*[ext=webm]+ba[ext=webm]/bv*+ba/b"
+  merge-output-format: "webm"
+  recode-video: "mp4"
+  postprocessor-args:
+    - "VideoConvertor+ffmpeg_o1:-c:v libx264 -crf 18 -preset slow -c:a aac -b:a 192k"
+
+profiles:
+  tiktok_mp4:
+    name: "TikTok MP4"
+    ydl_options:
+      output: "/youtube-dl/TikTok/%(uploader)s/%(title)s [%(id)s].%(ext)s"
+      format: "bv*[ext=webm]+ba[ext=webm]/bv*+ba/b"
+      merge-output-format: "webm"
+      recode-video: "mp4"
+      postprocessor-args:
+        - "VideoConvertor+ffmpeg_o1:-c:v libx264 -crf 18 -preset slow -c:a aac -b:a 192k"
+
+  instagram_mp4:
+    name: "Instagram MP4"
+    ydl_options:
+      output: "/youtube-dl/Instagram/%(uploader)s/%(title)s [%(id)s].%(ext)s"
+      format: "bv*[ext=webm]+ba[ext=webm]/bv*+ba/b"
+      merge-output-format: "webm"
+      recode-video: "mp4"
+      postprocessor-args:
+        - "VideoConvertor+ffmpeg_o1:-c:v libx264 -crf 18 -preset slow -c:a aac -b:a 192k"
+
+  facebook_mp4:
+    name: "Facebook MP4"
+    ydl_options:
+      output: "/youtube-dl/Facebook/%(uploader)s/%(title)s [%(id)s].%(ext)s"
+      format: "bv*[ext=webm]+ba[ext=webm]/bv*+ba/b"
+      merge-output-format: "webm"
+      recode-video: "mp4"
+      postprocessor-args:
+        - "VideoConvertor+ffmpeg_o1:-c:v libx264 -crf 18 -preset slow -c:a aac -b:a 192k"

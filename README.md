@@ -23,7 +23,7 @@ Despliegue de `youtube-dl-server` con Docker Compose para usar en local y luego 
 3. Abre la UI:
 
    ```
-   http://localhost:8080
+   http://localhost:8090
    ```
 
 ## Estructura
@@ -63,3 +63,22 @@ docker compose up -d
 ```
 
 Por defecto expone en el puerto `8080`.
+
+## Conversión MP4 de alta calidad
+
+La configuración actual prioriza fuente `webm` y luego recodifica a `mp4` con ffmpeg:
+
+- video: `libx264`
+- calidad: `-crf 18`
+- preset: `slow`
+- audio: `aac` a `192k`
+
+## Redes sociales
+
+Se añadieron perfiles en la UI para:
+
+- `TikTok MP4`
+- `Instagram MP4`
+- `Facebook MP4`
+
+Además, `yt-dlp` ya incluye extractores para esas plataformas en esta instalación.
