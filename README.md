@@ -90,6 +90,7 @@ Para publicaciones privadas o con restricciones de sesión, puedes usar perfiles
 - `TikTok MP4 (Auth)`
 - `Instagram MP4 (Auth)`
 - `Facebook MP4 (Auth)`
+- `YouTube MP4 (Auth)`
 
 Pasos:
 
@@ -107,4 +108,5 @@ Notas:
 
 - `cookies/` se monta en modo solo lectura dentro del contenedor.
 - `cookies.txt` no se sube a git (está ignorado en `.gitignore`).
+- `YouTube MP4 (Auth)` es útil para videos con restricción de edad/sesión.
 - Usa solo contenido permitido por la plataforma y tus permisos de cuenta.

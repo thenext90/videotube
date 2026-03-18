@@ -76,3 +76,14 @@ profiles:
       cookiefile: "/cookies/cookies.txt"
       postprocessor-args:
         - "VideoConvertor+ffmpeg_o1:-c:v libx264 -crf 18 -preset slow -c:a aac -b:a 192k"
+
+  youtube_mp4_auth:
+    name: "YouTube MP4 (Auth)"
+    ydl_options:
+      output: "/youtube-dl/YouTube/%(uploader)s/%(title)s [%(id)s].%(ext)s"
+      format: "bv*[ext=webm]+ba[ext=webm]/bv*+ba/b"
+      merge-output-format: "webm"
+      recode-video: "mp4"
+      cookiefile: "/cookies/cookies.txt"
+      postprocessor-args:
+        - "VideoConvertor+ffmpeg_o1:-c:v libx264 -crf 18 -preset slow -c:a aac -b:a 192k"
