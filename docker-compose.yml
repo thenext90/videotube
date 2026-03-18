@@ -3,11 +3,22 @@ services:
     image: nbr23/youtube-dl-server:yt-dlp
     container_name: videotube
     restart: unless-stopped
-    ports:
-      - "${VIDEOTUBE_PORT:-8080}:8080"
     environment:
       - YDL_CONFIG_PATH=/app_config/config.yml
     volumes:
       - ${VIDEOTUBE_DATA_DIR:-./data}:/youtube-dl
       - ./config.yml:/app_config/config.yml:ro
       - ./cookies:/cookies:ro
+
+  videotube-auth:
+    image: caddy:2-alpine
+    container_name: videotube-auth
+    restart: unless-stopped
+    depends_on:
+      - videotube
+    env_file:
+      - ./.auth.env
+    ports:
+      - "${VIDEOTUBE_PORT:-8090}:80"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro

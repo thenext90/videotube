@@ -12,6 +12,7 @@ Despliegue de `youtube-dl-server` con Docker Compose para usar en local y luego 
 
    ```bash
    cp .env.example .env
+   cp .auth.env.example .auth.env
    ```
 
 2. Inicia el servicio:
@@ -62,7 +63,36 @@ cp .env.example .env
 docker compose up -d
 ```
 
-Por defecto expone en el puerto `8080`.
+Por defecto expone en el puerto `8090`.
+
+## Login de acceso (usuario/clave)
+
+El acceso a la UI/API está protegido con `Basic Auth` por `Caddy`.
+
+Configura en `.auth.env`:
+
+- `VIDEOTUBE_USER` (ej: `admin`)
+- `VIDEOTUBE_PASSWORD_HASH` (hash bcrypt)
+
+Generación rápida (recomendado):
+
+```bash
+./scripts/set-auth.sh admin 'TU_PASSWORD_SEGURA'
+```
+
+El script crea `.auth.env` con el hash en formato compatible con Docker Compose.
+
+Si prefieres hacerlo manual, empieza con:
+
+```bash
+cp .auth.env.example .auth.env
+```
+
+Luego reinicia:
+
+```bash
+docker compose up -d
+```
 
 ## Conversión MP4 de alta calidad
 
